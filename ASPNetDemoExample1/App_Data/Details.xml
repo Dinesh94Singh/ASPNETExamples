@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Students>
+  <Student>
+    <Name>Dinesh Singh</Name>
+    <Age> 22 </Age>
+    <Occupation> .Net Developer </Occupation>
+    <Salary> 65000 </Salary>
+  </Student>
+  <Student>
+    <Name>Divya Chekuri</Name>
+    <Age> 22 </Age>
+    <Occupation> Build Engineer </Occupation>
+    <Salary> 65000 </Salary>
+  </Student>
+  <Student>
+    <Name>Rachita Niranjan</Name>
+    <Age> 16 </Age>
+    <Occupation> Student </Occupation>
+    <Salary> 75000 </Salary>
+  </Student>
+</Students>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ASPNetTraining>
+  <ControlType Name="Standard Controls">
+    <Control Name= "TextBox" url="~/StandardControlDemos/TextBoxExample.aspx"></Control>
+    <Control Name= "WizardControl" url="~/StandardControlDemos/WizardControlExample.aspx"></Control>
+    <Control Name= "FileUpload" url="~/StandardControlDemos/FileUplaodxExample.aspx"></Control>
+    <Control Name= "DropdownList" url="~/StandardControlDemos/DropdownListExample.aspx"></Control>
+  </ControlType>
+  <ControlType Name="Data Controls">
+    <Control Name ="GridView" url="~/DataBoundControlsDemos/GridViewExample.aspx"></Control>
+    <Control Name ="DetailsView" url="~/DataBoundControlsDemos/ListViewControl.aspx"></Control>
+    <Control Name ="Repeater" url="~/DataBoundControlsDemos/RepeaterControl.aspx"></Control>
+    <Control Name ="ListView" url="~/DataBoundControlsDemos/FormViewExample.aspx"></Control>
+  </ControlType>
+</ASPNetTraining>

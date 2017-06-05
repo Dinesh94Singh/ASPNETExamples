@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>~/Images/Sai_gold.jpg</ImageUrl>
+    <NavigateUrl>~/StandardControlDemos/CheckBoxExample.aspx</NavigateUrl>
+    <AlternateText>Baba1</AlternateText>
+    <Keyword>AddEx</Keyword>
+    <Impressions>100</Impressions>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>~/Images/Sai-Baba.jpg</ImageUrl>
+    <NavigateUrl>~/StandardControlDemos/CheckBoxExample.aspx</NavigateUrl>
+    <AlternateText>Baba2</AlternateText>
+    <Keyword>AddEx</Keyword>
+    <Impressions>200</Impressions>
+  </Ad>
+
+  <Ad>
+    <ImageUrl>~/Images/sai-baba-hd-wallpaper-25.jpg</ImageUrl>
+    <NavigateUrl>~/StandardControlDemos/CheckBoxExample.aspx</NavigateUrl>
+    <AlternateText>Baba3</AlternateText>
+    <Keyword>AddEx</Keyword>
+    <Impressions>300</Impressions>
+  </Ad>
+  
+</Advertisements>

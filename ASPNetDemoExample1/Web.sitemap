@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="" title="ASPNETTraining" description="">
+
+    <siteMapNode url="" title="Standard Controls" description="">
+      <siteMapNode url="~/StandardControlDemos/TextBoxExample.aspx" title="TextBox" description=""/>
+      <siteMapNode url="~/StandardControlDemos/CheckBoxExample.aspx" title="CheckBox" description=""/>
+      <siteMapNode url="~/StandardControlDemos/RadioButtonExample.aspx" title="Radio Button" description=""/>
+    </siteMapNode>
+
+    <siteMapNode url="" title="Data Controls" description="">
+      <siteMapNode url="~/DataBoundControlsDemos/GridViewExample.aspx" title="GridView" description=""/>
+      <siteMapNode url="~/DataBoundControlsDemos/DetailsViewControl.aspx" title="DetailsView" description=""/>
+      <siteMapNode url="~/DataBoundControlsDemos/FormViewExample.aspx" title="FormView" description=""/>
+    </siteMapNode>
+
+    <siteMapNode url="" title="Rich Controls" description="">
+      <siteMapNode url ="~/StandardControlDemos/AddRotatorExample.aspx" title="AdRotator" description=""/>
+      <siteMapNode url="~/StandardControlDemos/CalendarExample.aspx" title="Calendar" description=""/>
+    </siteMapNode>
+    
+  </siteMapNode>
+</siteMap>
