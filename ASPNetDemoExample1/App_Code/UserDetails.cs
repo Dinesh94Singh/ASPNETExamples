@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Configuration;
 
 namespace ASPNetDemoExample1.App_Code
 {
@@ -69,6 +69,77 @@ namespace ASPNetDemoExample1.App_Code
             // Constructor logic here
         }
 
+        private string GetConnectionString()
+        {
+            // This approach is error prone
+            string str = "dataSource=.;initial catalog=asptraining;integrated security=true";
+            return str;
+        }
+
+        private string GetCS()
+        {
+            // save because, DataSource, InitialCatalog and IntegratedSecurity are popping up as properties.
+            SqlConnectionStringBuilder scsb = new SqlConnectionStringBuilder();
+            scsb.DataSource = ".";
+            scsb.InitialCatalog = "asptraining";
+            scsb.IntegratedSecurity = true;
+            return scsb.ToString();
+        }
+
+        private string GetCSFromWebConfig()
+        {
+            string str = ConfigurationManager.ConnectionStrings["MyCS"].ConnectionString;
+            return str;
+        }
+
+        public DataSet GetListOfAllUsers()
+        {
+            DataSet dset = null;
+            SqlDataAdapter sda = null;
+            SqlConnection con = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                con = new SqlConnection();
+                con.ConnectionString = this.GetCSFromWebConfig();
+
+                cmd = new SqlCommand();
+                cmd.Connection = (con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "USP_GetListOfAllUsers";
+
+                // The new table which is getting returened is aliased as Users
+                dset = new DataSet("Users");
+
+                // Adapter is a bridge between Program and DB
+                sda = new SqlDataAdapter(cmd);
+                sda.Fill(dset,"Users");
+
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                    con.Dispose();
+                    con = null;
+
+                    cmd.Dispose();
+                    cmd = null;
+
+                    dset.Dispose();
+                    dset = null;
+
+                    sda.Dispose();
+                    sda = null;
+                }
+            }
+            return dset;
+        }
 
         public int UpdateUser()
         {
@@ -80,7 +151,10 @@ namespace ASPNetDemoExample1.App_Code
             try
             {
                 con = new SqlConnection();
-                con.ConnectionString = "data source=.;initial catalog=asptraining;integrated security=true"; // if sql server auth userid = .. password = ...
+                // con.ConnectionString = "data source=.;initial catalog=asptraining;integrated security=true"; // if sql server auth userid = .. password = ...
+                // con.ConnectionString = this.GetConnectionString();
+                // con.ConnectionString = this.GetCS();
+                con.ConnectionString = this.GetCSFromWebConfig();
                 cmd.Connection = con;
 
 
@@ -119,7 +193,7 @@ namespace ASPNetDemoExample1.App_Code
             SqlDataAdapter sda = null;
             DataSet dSet = null;
 
-            int Counter = 0;
+           
             try
             {
                 con = new SqlConnection();
@@ -234,12 +308,16 @@ namespace ASPNetDemoExample1.App_Code
             return Counter;
         }
 
-        public int CheckCred()
+        public DataSet CheckCred()
         {
             SqlConnection con = null;
             SqlCommand cmd = null;
 
-            int Counter = 0;
+            DataSet dset = null;
+            SqlDataAdapter sda = null;
+
+
+             // int Counter = 0;
             try
             {
                 con = new SqlConnection();
@@ -253,9 +331,12 @@ namespace ASPNetDemoExample1.App_Code
                 cmd.Parameters.AddWithValue("@UserName", this.UserName);
                 cmd.Parameters.AddWithValue("@Password", this.Password);
 
-                con.Open();
-                Counter = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                /* con.Open();
+                Counter = Convert.ToInt32(cmd.ExecuteScalar().ToString()); */
 
+                sda = new SqlDataAdapter(cmd);
+                dset = new DataSet();
+                sda.Fill(dset);
             }
             catch (Exception ex)
             {
@@ -271,7 +352,7 @@ namespace ASPNetDemoExample1.App_Code
                 }
             }
 
-            return Counter;
+            return dset;
 
         }
 
