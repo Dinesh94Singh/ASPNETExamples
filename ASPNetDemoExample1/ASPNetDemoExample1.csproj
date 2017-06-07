@@ -65,14 +65,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ADONetDemos\AutoGenerateColumnsDemo.aspx" />
+    <Content Include="ADONetDemos\BulkInsertPage.aspx" />
     <Content Include="ADONetDemos\ChangePassword.aspx" />
     <Content Include="ADONetDemos\ChangeProfile.aspx" />
     <Content Include="ADONetDemos\DataRelationExample.aspx" />
     <Content Include="ADONetDemos\FillDataSetManually.aspx" />
     <Content Include="ADONetDemos\GetListOfAllUsers.aspx" />
+    <Content Include="ADONetDemos\GetListOfAllUsersDataReader.aspx" />
     <Content Include="ADONetDemos\Home.aspx" />
     <Content Include="ADONetDemos\Login.aspx" />
+    <Content Include="ADONetDemos\LoopThroughDataReaderManually.aspx" />
     <Content Include="ADONetDemos\LoopThroughDataSetManually.aspx" />
+    <Content Include="ADONetDemos\MARS.aspx" />
+    <Content Include="ADONetDemos\ShowCountryWiseUsers.aspx" />
     <Content Include="ADONetDemos\SignUp.aspx" />
     <Content Include="AJAXDemo\AjaxDemo.aspx" />
     <Content Include="App_Data\Details.xml" />
@@ -148,6 +154,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADONetDemos\AutoGenerateColumnsDemo.aspx.cs">
+      <DependentUpon>AutoGenerateColumnsDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADONetDemos\AutoGenerateColumnsDemo.aspx.designer.cs">
+      <DependentUpon>AutoGenerateColumnsDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADONetDemos\BulkInsertPage.aspx.cs">
+      <DependentUpon>BulkInsertPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADONetDemos\BulkInsertPage.aspx.designer.cs">
+      <DependentUpon>BulkInsertPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADONetDemos\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +203,13 @@
     <Compile Include="ADONetDemos\GetListOfAllUsers.aspx.designer.cs">
       <DependentUpon>GetListOfAllUsers.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADONetDemos\GetListOfAllUsersDataReader.aspx.cs">
+      <DependentUpon>GetListOfAllUsersDataReader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADONetDemos\GetListOfAllUsersDataReader.aspx.designer.cs">
+      <DependentUpon>GetListOfAllUsersDataReader.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADONetDemos\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -197,12 +224,33 @@
     <Compile Include="ADONetDemos\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ADONetDemos\LoopThroughDataReaderManually.aspx.cs">
+      <DependentUpon>LoopThroughDataReaderManually.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADONetDemos\LoopThroughDataReaderManually.aspx.designer.cs">
+      <DependentUpon>LoopThroughDataReaderManually.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ADONetDemos\LoopThroughDataSetManually.aspx.cs">
       <DependentUpon>LoopThroughDataSetManually.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ADONetDemos\LoopThroughDataSetManually.aspx.designer.cs">
       <DependentUpon>LoopThroughDataSetManually.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADONetDemos\MARS.aspx.cs">
+      <DependentUpon>MARS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADONetDemos\MARS.aspx.designer.cs">
+      <DependentUpon>MARS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ADONetDemos\ShowCountryWiseUsers.aspx.cs">
+      <DependentUpon>ShowCountryWiseUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ADONetDemos\ShowCountryWiseUsers.aspx.designer.cs">
+      <DependentUpon>ShowCountryWiseUsers.aspx</DependentUpon>
     </Compile>
     <Compile Include="ADONetDemos\SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>

@@ -92,6 +92,152 @@ namespace ASPNetDemoExample1.App_Code
             return str;
         }
 
+        public DataSet GetListOfAllCountries()
+        {
+            DataSet dset = null;
+            SqlDataAdapter sda = null;
+            SqlConnection con = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                con = new SqlConnection();
+                con.ConnectionString = this.GetCSFromWebConfig();
+
+                cmd = new SqlCommand();
+                cmd.Connection = (con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "USP_GetListOfCountries";
+
+                // The new table which is getting returened is aliased as Users
+                dset = new DataSet("Users");
+
+                // Adapter is a bridge between Program and DB
+                sda = new SqlDataAdapter(cmd);
+                sda.Fill(dset, "Users");
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                    con.Dispose();
+                    con = null;
+
+                    cmd.Dispose();
+                    cmd = null;
+
+                    dset.Dispose();
+                    dset = null;
+
+                    sda.Dispose();
+                    sda = null;
+                }
+            }
+            return dset;
+        }
+
+
+        public DataSet GetCountryWiseUsers()
+        {
+            DataSet dset = null;
+            SqlDataAdapter sda = null;
+            SqlConnection con = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                con = new SqlConnection();
+                con.ConnectionString = this.GetCSFromWebConfig();
+
+                cmd = new SqlCommand();
+                cmd.Connection = (con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "USP_GetCountryWiseUsers";
+
+                // The new table which is getting returened is aliased as Users
+                dset = new DataSet("Users");
+
+                // Adapter is a bridge between Program and DB
+                sda = new SqlDataAdapter(cmd);
+                sda.Fill(dset, "Users");
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (con != null)
+                {
+                    con.Close();
+                    con.Dispose();
+                    con = null;
+
+                    cmd.Dispose();
+                    cmd = null;
+
+                    dset.Dispose();
+                    dset = null;
+
+                    sda.Dispose();
+                    sda = null;
+                }
+            }
+            return dset;
+        }
+        // connection oriented architecture - live connection required.
+        // Read only
+        // forward only
+        public SqlDataReader GetListOfAllUsersDataReader()
+        {
+
+            SqlDataReader sdr = null;
+            SqlConnection con = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                con = new SqlConnection();
+                con.ConnectionString = this.GetCSFromWebConfig();
+
+                cmd = new SqlCommand();
+                cmd.Connection = (con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "USP_GetListOfAllUsers";
+
+                con.Open();
+                sdr = cmd.ExecuteReader(CommandBehavior.CloseConnection); // Connection is closed when sdr is closed, sdr is closed when it is returned to the function call. If we don't mention this, then it is a great problem
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                /* Don't close the connection because, if you close we don't have connection oriented architecture.
+                if (con != null)
+                {
+                    con.Close();
+                    con.Dispose();
+                    con = null;
+
+                    cmd.Dispose();
+                    cmd = null;
+
+                    sdr.Close();
+                    sdr = null;
+                }*/ 
+            }
+            return sdr;
+        }
         public DataSet GetListOfAllUsers()
         {
             DataSet dset = null;
